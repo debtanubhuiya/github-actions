@@ -17,4 +17,4 @@ jobs:
         run: |
          cowsay -f dragon "Hello, I'm a dragon!" >> dragon.txt 
          ls -a
-         cat dragron.txt
+         cat dragon.txt

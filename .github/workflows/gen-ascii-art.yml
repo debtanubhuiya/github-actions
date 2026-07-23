@@ -10,11 +10,8 @@ jobs:
     
     steps:
 
-      - name: Install Cowsay app
-        run: sudo apt-get install cowsay -y
+      - name: Use Github's "Checkout" action
+        uses: actions/checkout@v7
       
-      - name: run cowsay, list files, & read dragon.txt
-        run: |
-         cowsay -f dragon "Hello, I'm a dragon!" >> dragon.txt 
-         ls -a
-         cat dragon.txt
+      - name: run the shell script to generate ASCII art
+        run: bash ascii-gen.sh

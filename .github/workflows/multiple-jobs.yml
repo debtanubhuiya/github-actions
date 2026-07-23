@@ -1,0 +1,30 @@
+name: Generate ASCII art
+
+on: push
+
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Github's "Checkout" action
+        uses: actions/checkout@v7
+      - name: run the shell script to generate ASCII art
+        run: bash ascii-gen.sh
+      - name: Use Github's "Upload Artifact" action
+        uses: actions/upload-artifact@v7
+        with:
+          name:  ascii-art
+          path: dragon.txt
+  Test:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Github's "Download Artifact" action
+        uses: actions/download-artifact@v7
+        with:
+         name: ascii-art
+      - name: Use Github's "Download Artifact" action
+        run: |
+         ls -a
+         cat dragon.txt          

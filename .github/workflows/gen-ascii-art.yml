@@ -1,0 +1,20 @@
+name: Generate ASCII art
+
+on: push
+
+jobs:
+
+  job_1:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: Install Cowsay app
+        run: sudo apt-get install cowsay -y
+      
+      - name: run cowsay, list files, & read dragon.txt
+        run: |
+         cowsay -f dragon "Hello, I'm a dragon!" >> dragon.txt 
+         ls -a
+         cat dragron.txt

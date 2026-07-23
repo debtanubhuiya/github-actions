@@ -1,0 +1,22 @@
+name: My First Workflow
+
+on: push
+
+jobs:
+
+  job_1:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: Use Github's own "Checkout" action
+        uses: actions/checkout@v7
+      
+      - name: show all files
+        run: ls -a
+      
+      - name: read files
+        run: cat README.md
+
+  
